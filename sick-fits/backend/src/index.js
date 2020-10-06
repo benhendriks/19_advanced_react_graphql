@@ -1,11 +1,14 @@
-require("dotenv").config({ path: variables.env });
-const createServer = require("createServer");
+require("dotenv").config({
+  path: "variables.env",
+});
+
+const createServer = require("./createServer");
 const db = require("./db");
 
 const server = createServer();
 
-//Todo use express middleware to handle cookies (JWT)
-//Todo use express middleware to populate current user
+//Todo create express middleware to hanlde cookies (JWT)
+//Todo create express middleware to populate current user
 
 server.start(
   {
@@ -15,6 +18,6 @@ server.start(
     },
   },
   (deets) => {
-    console.log(`Server is now running on port http:/localhost:${deets.port}`);
+    console.log(`Server is running on port http:/localhost:${deets.port}`);
   }
 );

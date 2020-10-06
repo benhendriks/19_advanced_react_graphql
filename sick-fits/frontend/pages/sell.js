@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const Sell = (props) => (
+const Sell = (probs) => (
   <div>
-    <p>Sell</p>
+    <p>Sell!</p>
   </div>
 );
 export default Sell;

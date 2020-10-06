@@ -1,4 +1,5 @@
-//This file connects to the remote prisma DB and gives us the ability to query it with JS
+//This file connects to the remote prisma dband gives us the ability to query it with javascript
+
 const { Prisma } = require("prisma-binding");
 
 const db = new Prisma({
