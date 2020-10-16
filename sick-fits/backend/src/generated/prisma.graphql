@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/benjamin-steidl-abe85a/sick-fits/dev
-# timestamp: Thu Oct 15 2020 15:28:15 GMT+0200 (Central European Summer Time)
+# timestamp: Fri Oct 16 2020 10:30:25 GMT+0200 (Central European Summer Time)
 
 type AggregateItem {
   count: Int!
@@ -862,4 +862,5 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
 }
