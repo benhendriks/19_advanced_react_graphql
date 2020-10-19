@@ -158,7 +158,7 @@ const Mutations = {
     //8. return the new user
     return updatedUser; 
   },
-  async updatePermission(parent, args, ctx, info) {
+  async updatePermissions(parent, args, ctx, info) {
     //1. Check if they are logged in
     if(!ctx.request.userId) {
       throw new Error('You must be logged in');
@@ -182,10 +182,11 @@ const Mutations = {
         },
       },
       where: {
-        id: args.userId
+        id: args.userId,
       },
     }, 
-    info);
+    info
+    );
   },
 }; 
 

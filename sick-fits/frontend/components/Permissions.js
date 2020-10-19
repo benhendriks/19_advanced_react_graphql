@@ -120,8 +120,8 @@ class UserPermissions extends React.Component {
         <td>
           <SickButton 
           type="button"
-          disabled={loding}
-          onClick={upatePermissions}
+          disabled={loading}
+          onClick={updatePermissions}
           >Update!</SickButton> 
         </td>
       </tr>
