@@ -7,8 +7,8 @@ import Pagination from './Pagination';
 import { perPage } from '../config';
 
 const ALL_ITEMS_QUERY = gql`
-  query All_ITEMS_QUERY( $skip: Int = 0, $first: Int = ${perPage} ) {
-    items( first: $first, skip: $skip, orderBy: createdAt_DESC ) {
+  query All_ITEMS_QUERY( $skip: Int = 0, $first: Int = ${perPage}) {
+    items(first: $first, skip: $skip, orderBy: createdAt_DESC) {
       id 
       title
       price 
@@ -40,7 +40,7 @@ class Items extends Component {
           query={ALL_ITEMS_QUERY} 
           // fetchPolicy="network-only"
           variables={{
-            skip: this.props.page * perPage -perPage,
+            skip: this.props.page * perPage - perPage,
           }}
         >
           {({ data, error, loading }) => {

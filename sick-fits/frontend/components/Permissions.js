@@ -88,15 +88,15 @@ class UserPermissions extends React.Component {
       (permission => permission !== checkbox.value);
     }
     this.setState({ permissions: updatedPermissions });
-    console.log(updatedPermissions);
   };
   render() {
     const user = this.props.user;
     return(
-      <Mutation mutation={UPDATE_PERMISSIONS_MUTATION}
+      <Mutation 
+        mutation={UPDATE_PERMISSIONS_MUTATION}
         variables={{
-        permissions: this.state.permissions,
-        userId: this.props.user.id
+          permissions: this.state.permissions,
+          userId: this.props.user.id,
         }}
       >
         {(updatePermissions, { loading, error }) => (
@@ -121,14 +121,17 @@ class UserPermissions extends React.Component {
           <SickButton 
           type="button"
           disabled={loading}
-          onClick={updatePermissions}
-          >Update!</SickButton> 
+          onClick={updatePermissions}>
+          Updat{ loading ? 'ing' : 'e' }
+        </SickButton> 
         </td>
       </tr>
       </>
-        )}
+        )
+        }
       </Mutation>
-    )
+    );
   }
 }
+
 export default Permissions;
