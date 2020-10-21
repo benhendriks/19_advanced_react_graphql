@@ -196,34 +196,63 @@ const Mutations = {
   async addToCart(parent, args, ctx, info) {
     //1. Make sure that they are sign in
     const { userId } = ctx.request;
-    if(!userIs) {
+    if(!userId) {
       throw new Error('You must be signed in!');   
     }
     //2. Query the Users current card
     const [existingCartItem] = await ctx.db.query.cartItems({
       where: {
-        user: { id: userId},
-        item: { id: args.id},
-      }
+        user: { id: userId },
+        item: { id: args.id },
+      },
     });
     //3. Check if thatitem is alreadyin their cart and increment by 1 if it is
     if(existingCartItem) {
       console.log('This Item is already in your cart');
-      return ctx.db.mutation.updateCartItem({
-        where: { id: existingCartitem.id },
-        data: { quantity: existingCartItem.quantity + 1}, 
-      }, info);
+      return ctx.db.mutation.updateCartItem(
+        {
+          where: { id: existingCartItem.id },
+          data: { quantity: existingCartItem.quantity + 1}, 
+        }, 
+        info
+      );
     }
     //4. If its not, create a fresh CartItemfor that user
-    return ctx.db.mutation.createCartItem({
-      data: {
-        user: {
-          connect: { id: userId },          
+      return ctx.db.mutation.createCartItem(
+        {
+          data: {
+            user: {
+              connect: { id: userId },          
+            },
+            item: {
+              connect: { id: args.id },
+          },
         },
-        item: {
-          connect: { id: args.id },
+      }, 
+      info
+    );
+  },
+  async removeFromCart(parent, args, ctx, info) {
+    //1. Find the cart item
+    const cartItem = await ctx.db.query.cartItem(
+      {
+        where: {
+          id: args.id,
         },
-      },
+      }, 
+      `{ id, user { id }}`
+    );
+    // 1.5 Make sure we  found an item
+    if(!cartItem) throw new Error('No cart item found');
+    //2. Make sure they own that cart item
+    if(cartItem.user.id !== ctx.request.userId) {
+      throw new Error('Cheatin huhhh!');
+    }
+    //3. Delete that cart item
+    return ctx.db.mutation.deleteCartItem({
+      where: { 
+        id: args.id 
+        },
     }, info);
   },
 }; 

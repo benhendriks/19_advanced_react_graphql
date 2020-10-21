@@ -14,7 +14,7 @@ export default class Item extends Component {
   };
 
   render () {
-    const {item} = this.props;
+    const { item}  = this.props;
     return  (
       <ItemStyles>
         {item.image && <img src={item.image} alt={item.title} />}
@@ -33,7 +33,7 @@ export default class Item extends Component {
         <div className="buttonList">
           <Link href={{
             pathname: "update",
-            query: {id: item.id }
+            query: {id: item.id },
           }}>
             <a>Edit✎</a>
           </Link>
