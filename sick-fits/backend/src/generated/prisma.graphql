@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/benjamin-steidl-abe85a/Sick-fits/dev
-# timestamp: Wed Oct 21 2020 09:44:47 GMT+0200 (Central European Summer Time)
+# timestamp: Thu Oct 22 2020 10:09:27 GMT+0200 (Central European Summer Time)
 
 type AggregateCartItem {
   count: Int!
