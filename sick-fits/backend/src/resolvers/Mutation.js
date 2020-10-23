@@ -4,6 +4,7 @@ const { randomBytes } = require('crypto');
 const { promisify } = require('util');
 const { transport, makeANiceEmail } = require('../mail');
 const { hasPermission } = require('../utils');
+const stripe = require('../stripe');
 
 const Mutations = {
   async createItem(parent, args, ctx, info) {
@@ -255,6 +256,46 @@ const Mutations = {
       },
     }, info);
   },
+  async createOrder(parent, args, ctx, info) {
+    // 1. Query the current Userand make sure thea are signed in
+    const { userId } = ctx.request;
+    if(!userId) throw new Error('You must be signin!');
+    const user = await ctx.db.query.user({ where: { id: userId } }, 
+      `{
+        id 
+        name 
+        email 
+        cart { 
+          id 
+          quantity 
+          item { 
+            title 
+            price 
+            id 
+            description 
+            image 
+          }
+      }}`
+    );
+    // 2. recalculate the total for the price
+    const amount = user.cart.reduce(
+      (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity, 
+      0
+    );
+    console.log(`Going to charge for a total of ${amount}`);
+    // 3. Create the stripe charge (turn token into $$$)
+    const charge = await stripe.charges.create({
+      amount,
+      currency: 'USD',
+      source: args.token,
+    });
+    // 4. Convert the CartItems to OrderItems 
+    // 5. Create the Order 
+    // 6. Clean up - clear the users cart, deletecartitems
+    // 7. Return the Order to the client
+
+
+  }
 };
 
 module.exports = Mutations; 
