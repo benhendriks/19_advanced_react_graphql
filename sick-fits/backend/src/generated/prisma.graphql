@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/benjamin-steidl-abe85a/Sick-fits/dev
-# timestamp: Fri Oct 23 2020 11:35:28 GMT+0200 (Central European Summer Time)
+# timestamp: Mon Oct 26 2020 11:22:27 GMT+0100 (Central European Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -847,7 +847,7 @@ type OrderItem implements Node {
   id: ID!
   title: String!
   description: String!
-  iamge: String!
+  image: String!
   largeImage: String!
   price: Int!
   quantity: Int!
@@ -868,7 +868,7 @@ input OrderItemCreateInput {
   id: ID
   title: String!
   description: String!
-  iamge: String!
+  image: String!
   largeImage: String!
   price: Int!
   quantity: Int
@@ -896,8 +896,8 @@ enum OrderItemOrderByInput {
   title_DESC
   description_ASC
   description_DESC
-  iamge_ASC
-  iamge_DESC
+  image_ASC
+  image_DESC
   largeImage_ASC
   largeImage_DESC
   price_ASC
@@ -910,7 +910,7 @@ type OrderItemPreviousValues {
   id: ID!
   title: String!
   description: String!
-  iamge: String!
+  image: String!
   largeImage: String!
   price: Int!
   quantity: Int!
@@ -1045,46 +1045,46 @@ input OrderItemScalarWhereInput {
 
   """All values not ending with the given string."""
   description_not_ends_with: String
-  iamge: String
+  image: String
 
   """All values that are not equal to given value."""
-  iamge_not: String
+  image_not: String
 
   """All values that are contained in given list."""
-  iamge_in: [String!]
+  image_in: [String!]
 
   """All values that are not contained in given list."""
-  iamge_not_in: [String!]
+  image_not_in: [String!]
 
   """All values less than the given value."""
-  iamge_lt: String
+  image_lt: String
 
   """All values less than or equal the given value."""
-  iamge_lte: String
+  image_lte: String
 
   """All values greater than the given value."""
-  iamge_gt: String
+  image_gt: String
 
   """All values greater than or equal the given value."""
-  iamge_gte: String
+  image_gte: String
 
   """All values containing the given string."""
-  iamge_contains: String
+  image_contains: String
 
   """All values not containing the given string."""
-  iamge_not_contains: String
+  image_not_contains: String
 
   """All values starting with the given string."""
-  iamge_starts_with: String
+  image_starts_with: String
 
   """All values not starting with the given string."""
-  iamge_not_starts_with: String
+  image_not_starts_with: String
 
   """All values ending with the given string."""
-  iamge_ends_with: String
+  image_ends_with: String
 
   """All values not ending with the given string."""
-  iamge_not_ends_with: String
+  image_not_ends_with: String
   largeImage: String
 
   """All values that are not equal to given value."""
@@ -1213,7 +1213,7 @@ input OrderItemSubscriptionWhereInput {
 input OrderItemUpdateDataInput {
   title: String
   description: String
-  iamge: String
+  image: String
   largeImage: String
   price: Int
   quantity: Int
@@ -1223,7 +1223,7 @@ input OrderItemUpdateDataInput {
 input OrderItemUpdateInput {
   title: String
   description: String
-  iamge: String
+  image: String
   largeImage: String
   price: Int
   quantity: Int
@@ -1233,7 +1233,7 @@ input OrderItemUpdateInput {
 input OrderItemUpdateManyDataInput {
   title: String
   description: String
-  iamge: String
+  image: String
   largeImage: String
   price: Int
   quantity: Int
@@ -1254,7 +1254,7 @@ input OrderItemUpdateManyInput {
 input OrderItemUpdateManyMutationInput {
   title: String
   description: String
-  iamge: String
+  image: String
   largeImage: String
   price: Int
   quantity: Int
@@ -1405,46 +1405,46 @@ input OrderItemWhereInput {
 
   """All values not ending with the given string."""
   description_not_ends_with: String
-  iamge: String
+  image: String
 
   """All values that are not equal to given value."""
-  iamge_not: String
+  image_not: String
 
   """All values that are contained in given list."""
-  iamge_in: [String!]
+  image_in: [String!]
 
   """All values that are not contained in given list."""
-  iamge_not_in: [String!]
+  image_not_in: [String!]
 
   """All values less than the given value."""
-  iamge_lt: String
+  image_lt: String
 
   """All values less than or equal the given value."""
-  iamge_lte: String
+  image_lte: String
 
   """All values greater than the given value."""
-  iamge_gt: String
+  image_gt: String
 
   """All values greater than or equal the given value."""
-  iamge_gte: String
+  image_gte: String
 
   """All values containing the given string."""
-  iamge_contains: String
+  image_contains: String
 
   """All values not containing the given string."""
-  iamge_not_contains: String
+  image_not_contains: String
 
   """All values starting with the given string."""
-  iamge_starts_with: String
+  image_starts_with: String
 
   """All values not starting with the given string."""
-  iamge_not_starts_with: String
+  image_not_starts_with: String
 
   """All values ending with the given string."""
-  iamge_ends_with: String
+  image_ends_with: String
 
   """All values not ending with the given string."""
-  iamge_not_ends_with: String
+  image_not_ends_with: String
   largeImage: String
 
   """All values that are not equal to given value."""

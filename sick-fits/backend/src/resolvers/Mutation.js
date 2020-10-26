@@ -234,30 +234,31 @@ const Mutations = {
     );
   },
   async removeFromCart(parent, args, ctx, info) {
-    //1. Find the cart item
+    // 1. Find the cart item
     const cartItem = await ctx.db.query.cartItem(
       {
         where: {
           id: args.id,
         },
-      }
-        `{ id, user { id }}`
-    );
-    // 1.5 Make sure we  found an item
-    if (!cartItem) throw new Error('No cart item found');
-    //2. Make sure they own that cart item
-    if (cartItem.user.id !== ctx.request.userId) {
-      throw new Error('Cheatin huhhh!');
-    }
-    //3. Delete that cart item
-    return ctx.db.mutation.deleteCartItem({
-      where: {
-        id: args.id
       },
-    }, info);
+      `{ id, user { id }}`
+    );
+    // 1.5 Make sure we found an item
+    if (!cartItem) throw new Error('No CartItem Found!');
+    // 2. Make sure they own that cart item
+    if (cartItem.user.id !== ctx.request.userId) {
+      throw new Error('Cheatin huhhhh');
+    }
+    // 3. Delete that cart item
+    return ctx.db.mutation.deleteCartItem(
+      {
+        where: { id: args.id },
+      },
+      info
+    );
   },
   async createOrder(parent, args, ctx, info) {
-    // 1. Query the current Userand make sure thea are signed in
+    // 1. Query the current User and make sure they are signed in
     const { userId } = ctx.request;
     if(!userId) throw new Error('You must be signin!');
     const user = await ctx.db.query.user({ where: { id: userId } }, 
@@ -268,14 +269,7 @@ const Mutations = {
         cart { 
           id 
           quantity 
-          item { 
-            title 
-            price 
-            id 
-            description 
-            image 
-            largeImage
-          }
+          item { title price id description image largeImage }
       }}`
     );
     // 2. recalculate the total for the price
@@ -301,7 +295,7 @@ const Mutations = {
       return orderItem;
     });
     // 5. Create the Order 
-    const order = await ctx.db.mutaion.createOrder({
+    const order = await ctx.db.mutation.createOrder({
       data: {
         total: charge.amount,
         charge: charge.id,
