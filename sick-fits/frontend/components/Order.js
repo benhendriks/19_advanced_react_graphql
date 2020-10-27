@@ -1,4 +1,4 @@
-imoprt React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { format } from 'date-fns';
@@ -52,21 +52,21 @@ class Order extends React.Component {
             </p>
             <p>
               <span>Charge</span>
-              <span>{order.charge}</span>
+              <span>{ order.charge }</span>
             </p>
             <p>
               <span>Date</span>
-              <span>{format(order.createdAt), 'MMMM d, YYYY h:mm a'}</span>
+              <span>{ format(order.createdAt, 'MMMM d, YYYY h:mm a' )}</span>
             </p>
             <p>
               <span>Order Total</span>
-              <span>{formatMoney(order.total)}</span>
+              <span>{ formatMoney(order.total) }</span>
             </p>
             <p>
               <span>Item Count</span>
-              <span>{order.items.length}</span>
+              <span>{ order.items.length }</span>
             </p>
-          <div className="item">{order.items.map(item => (
+          <div className="items">{order.items.map(item => (
             <div className="order-item" key={ item.id }>
               <img src={ item.image } alt={ item.title }/>
               <div className="item-details">
