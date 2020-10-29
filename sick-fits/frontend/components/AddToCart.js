@@ -17,7 +17,7 @@ class AddToCart extends React.Component {
     const { id } = this.props;
     return (
       <Mutation 
-        mutation={ADD_TO_CART_MUTATION} 
+        mutation={ ADD_TO_CART_MUTATION } 
         variables={{ 
           id,
         }}

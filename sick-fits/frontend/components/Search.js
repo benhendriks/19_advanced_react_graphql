@@ -55,7 +55,7 @@ class AutoComplete extends React.Component {
     resetIdCounter();
     return(
     <SearchStyles>
-      <Downshift onChange={routeToItem} itemToString={ item => (
+      <Downshift onChange={ routeToItem } itemToString={ item => (
         item === null ? '' : item.title 
         )}
       >
@@ -91,7 +91,7 @@ class AutoComplete extends React.Component {
                 </DropDownItem>
               ))}
               {!this.state.items.length && !this.state.loading && (
-                <DropDownItem>Nothing Found for {inputValue}</DropDownItem>
+                <DropDownItem>Nothing found for { inputValue }</DropDownItem>
               )}
             </DropDown>
           )}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Mutation} from 'react-apollo';
+import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -28,10 +28,10 @@ class Signup extends Component {
   render() {
     return (
       <Mutation 
-      mutation={SIGNUP_MUTATION} 
-      variables={this.state}
+      mutation={ SIGNUP_MUTATION } 
+      variables={ this.state }
       refetchQueries={[
-        {query: CURRENT_USER_QUERY }
+        { query: CURRENT_USER_QUERY }
       ]}
       >
       {(signup, { error, loading }) => ( 
@@ -51,9 +51,9 @@ class Signup extends Component {
                 <input 
                   type="email" 
                   name="email" 
-                  placeholder="Email" 
+                  placeholder="email" 
                   value={this.state.email} 
-                  onChange={this.saveToState}
+                  onChange={ this.saveToState }
                 />
               </label>
               <label htmlFor="name">
@@ -61,9 +61,9 @@ class Signup extends Component {
                 <input 
                   type="text" 
                   name="name" 
-                  placeholder="Name" 
+                  placeholder="name" 
                   value={this.state.name} 
-                  onChange={this.saveToState}
+                  onChange={ this.saveToState }
                 />
               </label>
               <label htmlFor="password">
@@ -71,12 +71,12 @@ class Signup extends Component {
                 <input 
                   type="password" 
                   name="password" 
-                  placeholder="Password" 
-                  value={this.state.password} 
-                  onChange={this.saveToState}
+                  placeholder="password" 
+                  value={ this.state.password } 
+                  onChange={ this.saveToState }
                 />
               </label>
-              <button type="submit">Sign Up!</button>
+              <button type="submit">SIGN UP!</button>
           </fieldset>
         </Form>
       )}

@@ -19,7 +19,6 @@ const CREATE_ORDER_MUTATION = gql`
         id 
         title   
       }
-
     }
   }
 `;
@@ -31,7 +30,7 @@ function totalItems(cart) {
 class TakeMyMoney extends React.Component {
   onToken = async (res, createOrder) => {
     NProgress.start();
-    console.log('On Token called');
+    console.log('On token called');
     console.log(res);
     // Manually call the mutation once we have the stripe token
     const order = await createOrder({
@@ -56,13 +55,13 @@ class TakeMyMoney extends React.Component {
                 amount={calcTotalPrice(me.cart)}
                 name="Sick Fits"
                 description={`Order of ${totalItems(me.cart)} items`}
-                image={me.cart.length && me.cart[0].item && me.cart[0].item.image}
+                image={ me.cart.length && me.cart[0].item && me.cart[0].item.image }
                 stripeKey="pk_test_51HfAMaHd1cwh1FonhVna1a9cIk2LcFPMjsO2dsA20f9qn2NnHfvl5jfkUfUeDxK9JjLf4odgZKG0s4xWfyZiq47U00OLbnv3Cr"
                 currency="USD"
-                email={me.email}
-                token={res => this.onToken(res, createOrder)}
+                email={ me.email }
+                token={ res => this.onToken(res, createOrder) }
               >
-                {this.props.children}
+                { this.props.children }
               </StripeCheckout>
             )}
           </Mutation>

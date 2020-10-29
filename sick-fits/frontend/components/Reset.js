@@ -54,7 +54,7 @@ class Reset extends Component {
           }}
         >
           <fieldset disabled={loading} aria-busy={loading}>
-            <h2>Request Your Password</h2>
+            <h2>Request your password</h2>
             <Error error={error} />
               <label htmlFor="password">
                 Password
@@ -63,20 +63,20 @@ class Reset extends Component {
                   name="password" 
                   placeholder="password" 
                   value={this.state.password} 
-                  onChange={this.saveToState}
+                  onChange={ this.saveToState }
                 />
               </label>
               <label htmlFor="confirmPassword">
-                Confirm Your Password
+                Confirm your password
                 <input 
                   type="Password" 
                   name="confirmPassword" 
                   placeholder="confirmPassword" 
-                  value={this.state.confirmPassword} 
-                  onChange={this.saveToState}
+                  value={ this.state.confirmPassword } 
+                  onChange={ this.saveToState }
                 />
               </label>
-              <button type="submit">Reset Your Password!</button>
+              <button type="submit">Reset your password!</button>
           </fieldset>
         </Form>
       )}

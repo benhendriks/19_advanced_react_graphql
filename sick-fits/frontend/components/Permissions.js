@@ -50,12 +50,12 @@ const Permissions = (props) => (
               <tr>  
                 <th>Name</th>
                 <th>Email</th>
-                  {possiblePermissions.map(permission => <th key={permission}>{permission}</th>)}
+                  { possiblePermissions.map(permission => <th key={permission}>{permission}</th>) }
                   <th>▽</th>
               </tr>
             </thead>
             <tbody>
-              {data.users.map(user => <UserPermissions user={user} key={user.id}/>)}
+              { data.users.map(user => <UserPermissions user={user} key={user.id}/>) }
             </tbody>
           </Table>
         </div>
@@ -93,7 +93,7 @@ class UserPermissions extends React.Component {
     const user = this.props.user;
     return(
       <Mutation 
-        mutation={UPDATE_PERMISSIONS_MUTATION}
+        mutation={ UPDATE_PERMISSIONS_MUTATION }
         variables={{
           permissions: this.state.permissions,
           userId: this.props.user.id,

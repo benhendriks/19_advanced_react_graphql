@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Mutation} from 'react-apollo';
+import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -23,8 +23,8 @@ class Signin extends Component {
   render() {
     return (
       <Mutation 
-      mutation={REQUEST_RESET_MUTATION} 
-      variables={this.state}
+      mutation={ REQUEST_RESET_MUTATION } 
+      variables={ this.state }
       >
       {(reset, { error, loading, called }) => ( 
         <Form 
@@ -49,7 +49,7 @@ class Signin extends Component {
                   onChange={this.saveToState}
                 />
               </label>
-              <button type="submit">Request Reset!  </button>
+              <button type="submit">Request Reset!</button>
           </fieldset>
         </Form>
       )}

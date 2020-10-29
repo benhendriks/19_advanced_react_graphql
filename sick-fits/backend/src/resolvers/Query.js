@@ -20,7 +20,7 @@ const Query = {
   async users(parent, args, ctx, info) {
     //1. Check if they are logged in
     if(!ctx.request.userId) {
-      throw new Error('You must be logged in');
+      throw new Error( 'You must be logged in' );
     }
     console.log(ctx.request.userId);
     //2. Check if the User has the permissions to queryall the users
@@ -31,7 +31,7 @@ const Query = {
   async order(parent, args, ctx, info) {
     // 1. Make sure they are logged in
     if(!ctx.request.userId) {
-      throw new Error('You arent logged in');
+      throw new Error( 'You arent logged in' );
     }
     // 2. Query the current order
     const order = await ctx.db.query.order({
@@ -41,7 +41,7 @@ const Query = {
     const ownsOrder = order.user.id === ctx.request.userId;
     const hasPermissionToSeeOrder = ctx.request.user.permissions.includes('ADMIN');
     if(!ownsOrder || !hasPermission) {
-      throw new Error('You cant see this!');
+      throw new Error( 'You cant see this!' );
     }
     // 4. Return the order 
     return order;
@@ -49,7 +49,7 @@ const Query = {
   async orders(parent, args, ctx, info) {
     const { userId } = ctx.request;
     if(!userId) {
-      throw new Error('you must be signed in');
+      throw new Error( 'You must be signed in' );
     }
     return ctx.db.query.orders({
       where: {

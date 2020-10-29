@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Mutation} from 'react-apollo';
+import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -28,8 +28,8 @@ class Signin extends Component {
   render() {
     return (
       <Mutation 
-      mutation={SIGNIN_MUTATION} 
-      variables={this.state}
+      mutation={ SIGNIN_MUTATION } 
+      variables={ this.state }
       refetchQueries={[
         { query: CURRENT_USER_QUERY }
       ]}
@@ -51,9 +51,9 @@ class Signin extends Component {
                 <input 
                   type="email" 
                   name="email" 
-                  placeholder="Email" 
-                  value={this.state.email} 
-                  onChange={this.saveToState}
+                  placeholder="email" 
+                  value={ this.state.email } 
+                  onChange={ this.saveToState }
                 />
               </label>
               <label htmlFor="password">
@@ -61,12 +61,12 @@ class Signin extends Component {
                 <input 
                   type="password" 
                   name="password" 
-                  placeholder="Password" 
+                  placeholder="password" 
                   value={this.state.password} 
                   onChange={this.saveToState}
                 />
               </label>
-              <button type="submit">Sign In!</button>
+              <button type="submit">SIGN IN!</button>
           </fieldset>
         </Form>
       )}

@@ -28,7 +28,7 @@ const CartItem = ({ cartItem }) => (
           {formatMoney(cartItem.item.price * cartItem.quantity)}
           {' - '}
           <em>
-            {cartItem.quantity} &times; {formatMoney(cartItem.item.price)} each
+            {cartItem.quantity} &times; { formatMoney(cartItem.item.price) } each
           </em>
         </p>
 

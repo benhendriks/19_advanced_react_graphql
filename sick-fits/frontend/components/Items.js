@@ -35,9 +35,9 @@ class Items extends Component {
   render() {
     return (
       <Center>
-        <Pagination page={this.props.page} />
+        <Pagination page={ this.props.page } />
         <Query 
-          query={ALL_ITEMS_QUERY} 
+          query={ ALL_ITEMS_QUERY } 
           // fetchPolicy="network-only"
           variables={{
             skip: this.props.page * perPage - perPage,
@@ -53,7 +53,7 @@ class Items extends Component {
             );
           }}
         </Query>
-        <Pagination page={this.props.page} />
+        <Pagination page={ this.props.page } />
       </Center>
     );
   } 

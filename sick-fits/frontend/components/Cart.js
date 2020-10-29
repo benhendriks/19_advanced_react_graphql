@@ -62,4 +62,4 @@ const Cart = () => (
 );
 
 export default Cart;
-export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION};
+export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION };
