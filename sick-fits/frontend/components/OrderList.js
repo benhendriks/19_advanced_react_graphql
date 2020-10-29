@@ -42,7 +42,7 @@ class OrderList extends React.Component {
             return (
             <div>
               <h2>You have { orders.length } orders</h2>
-              <orderUL>
+              <orderUl>
                 {orders.map(order => (
                   <OrderItemStyles key={ order.id }>
                     <Link href={{
@@ -65,7 +65,7 @@ class OrderList extends React.Component {
                     </Link>
                   </OrderItemStyles>
                 ))}
-              </orderUL>
+              </orderUl>
             </div>
           );
         }}

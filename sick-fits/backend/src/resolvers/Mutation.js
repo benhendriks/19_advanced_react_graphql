@@ -150,7 +150,7 @@ const Mutations = {
       data: {
         password,
         resetToken: null,
-        resetTokeExpiry: null,
+        resetTokenExpiry: null,
       },
     });
     //6. Generate JWT 

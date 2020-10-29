@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Mutation} from 'react-apollo';
+import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import Form from './styles/Form';
@@ -10,7 +10,7 @@ const RESET_MUTATION = gql`
   mutation RESET_MUTATION($resetToken: String!, $password: String!, $confirmPassword: String! )
   {
     resetPassword( 
-      resetToken: $resetToken!, 
+      resetToken: $resetToken, 
       password: $password, 
       confirmPassword: $confirmPassword) {
       id
@@ -22,19 +22,19 @@ const RESET_MUTATION = gql`
 
 class Reset extends Component {
   static propTypes = {
-    resetToken: PropTypes.string.isrequired,
+    resetToken: PropTypes.string.isRequired,
   };
   state = {
     password: '',
     confirmPassword: '',
   };
   saveToState = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   };
   render() {
     return (
       <Mutation 
-      mutation={RESET_MUTATION} 
+      mutation={ RESET_MUTATION } 
       variables={{
         resetToken: this.props.resetToken,
         password: this.state.password,
@@ -66,13 +66,13 @@ class Reset extends Component {
                   onChange={this.saveToState}
                 />
               </label>
-              <label htmlFor="confimPassword">
+              <label htmlFor="confirmPassword">
                 Confirm Your Password
                 <input 
                   type="Password" 
-                  name="confimpassword" 
-                  placeholder="confimPassword" 
-                  value={this.state.confimPassword} 
+                  name="confirmPassword" 
+                  placeholder="confirmPassword" 
+                  value={this.state.confirmPassword} 
                   onChange={this.saveToState}
                 />
               </label>

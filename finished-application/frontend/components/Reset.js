@@ -64,7 +64,7 @@ class Reset extends Component {
               <label htmlFor="confirmPassword">
                 Confirm Your Password
                 <input
-                  type="password"
+                  type="Password"
                   name="confirmPassword"
                   placeholder="confirmPassword"
                   value={this.state.confirmPassword}
