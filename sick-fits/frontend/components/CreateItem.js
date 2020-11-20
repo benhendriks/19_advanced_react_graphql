@@ -41,7 +41,6 @@ class CreateItem extends Component {
   };
 
   uploadFile = async e => {
-    console.log('uploading file...');
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -53,7 +52,6 @@ class CreateItem extends Component {
       body: data,
     });
     const file = await res.json();
-    console.log(file);
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
@@ -70,7 +68,6 @@ class CreateItem extends Component {
               //Call the Mutation
               const res = await createItem();
               //Change them to the single item page
-              console.log(res);
               Router.push({
                 pathname: '/item',
                 query: { id: res.data.createItem.id },
